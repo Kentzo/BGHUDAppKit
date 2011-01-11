@@ -66,6 +66,7 @@
 		E7649D0F0E1AC55B001F7E20 /* BGHUDSegmentedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7649D0D0E1AC55B001F7E20 /* BGHUDSegmentedCell.m */; };
 		E7649D140E1AC719001F7E20 /* BGHUDSegmentedCell.classdescription in Resources */ = {isa = PBXBuildFile; fileRef = E7649D130E1AC719001F7E20 /* BGHUDSegmentedCell.classdescription */; };
 		E7649D170E1AC74F001F7E20 /* BGHUDSegementedCellIntegration.m in Sources */ = {isa = PBXBuildFile; fileRef = E7649D160E1AC74F001F7E20 /* BGHUDSegementedCellIntegration.m */; };
+		E77C266F12DCC478001D48B0 /* BGHUDAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 53DF68FD067E5B5A0090B5B0 /* BGHUDAppKit.framework */; };
 		E782C7600F8A25F8002657B1 /* BGHUDStepperCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E782C75E0F8A25F8002657B1 /* BGHUDStepperCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E782C7610F8A25F8002657B1 /* BGHUDStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E782C75F0F8A25F8002657B1 /* BGHUDStepperCell.m */; };
 		E782C78F0F8A26AC002657B1 /* BGHUDStepper.classdescription in Resources */ = {isa = PBXBuildFile; fileRef = E782C78E0F8A26AC002657B1 /* BGHUDStepper.classdescription */; };
@@ -166,12 +167,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E7B8A3040E171698006AC84C /* CopyFiles */ = {
+		E77C267C12DCC4C6001D48B0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = Docs;
-			dstSubfolderSpec = 1;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
+				E77C266F12DCC478001D48B0 /* BGHUDAppKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,8 +322,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
 				546DEAF3067F632A0098DCC4 /* BGHUDAppKit.framework in Frameworks */,
+				8D1AC9700486D14A00FE50C9 /* Cocoa.framework in Frameworks */,
 				C0D069560A49DF9100C95564 /* InterfaceBuilderKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -787,7 +789,6 @@
 				53DF68F9067E5B5A0090B5B0 /* Resources */,
 				53DF68FA067E5B5A0090B5B0 /* Sources */,
 				53DF68FB067E5B5A0090B5B0 /* Frameworks */,
-				E7B8A3040E171698006AC84C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -805,7 +806,7 @@
 				8D1AC9660486D14A00FE50C9 /* Resources */,
 				8D1AC96A0486D14A00FE50C9 /* Sources */,
 				8D1AC96E0486D14A00FE50C9 /* Frameworks */,
-				E79C25620E1090FD00742AF4 /* ShellScript */,
+				E77C267C12DCC4C6001D48B0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -838,8 +839,8 @@
 			projectRoot = "";
 			targets = (
 				53DF6901067E5B8E0090B5B0 /* All */,
-				8D1AC9600486D14A00FE50C9 /* BGHUDAppKitPlugin */,
 				53DF68FC067E5B5A0090B5B0 /* BGHUDAppKit */,
+				8D1AC9600486D14A00FE50C9 /* BGHUDAppKitPlugin */,
 			);
 		};
 /* End PBXProject section */
@@ -891,22 +892,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		E79C25620E1090FD00742AF4 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ -f \"/usr/bin/install_name_tool\" ]; then\n\n    /usr/bin/install_name_tool -change @executable_path/../Frameworks/BGHUDAppKit.framework/Versions/A/BGHUDAppKit @loader_path/../../../../../../../BGHUDAppKit.framework/Versions/A/BGHUDAppKit \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.ibplugin/Contents/MacOS/${PRODUCT_NAME}\"\n\nelse\n\n    /Developer/usr/bin/install_name_tool -change @executable_path/../Frameworks/BGHUDAppKit.framework/Versions/A/BGHUDAppKit @loader_path/../../../../../../../BGHUDAppKit.framework/Versions/A/BGHUDAppKit \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.ibplugin/Contents/MacOS/${PRODUCT_NAME}\"\n\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		53DF68FA067E5B5A0090B5B0 /* Sources */ = {
@@ -1075,12 +1060,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "BGHUDAppKitFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0xb0000000,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = BGHUDAppKit;
 				SEPARATE_STRIP = YES;
 				SKIP_INSTALL = NO;
@@ -1124,11 +1106,8 @@
 				GCC_WARN_UNUSED_PARAMETER = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				INFOPLIST_FILE = "BGHUDAppKitFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
-				OTHER_LDFLAGS = (
-					"-seg1addr",
-					0xb0440100,
-				);
+				INSTALL_PATH = "@rpath";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = BGHUDAppKit;
 				SKIP_INSTALL = NO;
 			};
@@ -1148,7 +1127,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "BGHUDAppKitFramework-Info.plist";
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				OTHER_LDFLAGS = (
 					"-seg1addr",
@@ -1184,6 +1163,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = BGHUDAppKitPlugin_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = BGHUDAppKitPlugin;
 				WRAPPER_EXTENSION = ibplugin;
 				ZERO_LINK = YES;
@@ -1194,7 +1174,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/BGHUDAppKit.framework/Resources/";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1213,6 +1193,7 @@
 				GCC_PREFIX_HEADER = BGHUDAppKitPlugin_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = BGHUDAppKitPlugin;
 				WRAPPER_EXTENSION = ibplugin;
 			};

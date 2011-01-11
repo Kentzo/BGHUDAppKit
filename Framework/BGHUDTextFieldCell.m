@@ -244,7 +244,6 @@
 	view = nil;
 	
 	// Check to see if the attributed placeholder has been set or not
-	//if(![self placeholderAttributedString]) {
 	if(![self placeholderAttributedString] && [self placeholderString]) {
 		
 		NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
@@ -261,6 +260,7 @@
 		
 		//Set it
 		[self setPlaceholderAttributedString: [[[NSAttributedString alloc] initWithString: [self placeholderString] attributes: [attribs autorelease]] autorelease]];
+	// Make sure we have an attributed placeholder AND that it actually contains something
 	} else if([self placeholderAttributedString] && [[self placeholderAttributedString] length] > 0) {
 		
 		// Check to see if the proper styles have been applied

@@ -1,5 +1,10 @@
-h1. Important 1/3/2011
+h1. Important 1/11/2011
 
+I changed the way BGHUDAppKit is integrated into a project.  It now uses @rpath so that BGHUDAppKit.framework can be installed as a System Framework OR embedded in an app without any modificaitons.  The only change this makes to your projects is that you will need to specify "@loader_path/../Frameworks" in your "Runtime Search Path" build settings.
+
+The IB Plugin is also an independant element now.  Meaning, it no longer resides in the frameworks Resources file.  I chose to remove it since IB was keeping a memory of the Plugin instead of loading it dynamicly from the framework like it was supposed to.  So please make sure you add the plugin to IB after you upgrade.
+
+1/3/20011
 The App Store branch has been merged into Master.  Please be aware that existing projects that upgrade to the new version will need to toggle any Radio/Check buttons from the existing Bezel style to another and back again.  (IE: A check will need to be toggled to radio and then back to check)  This will setup the new code changes I had to implement for the App Store.
 
 h2. About
@@ -53,6 +58,9 @@ Installation is on a per project basis, BGHUDAppKit was designed to be embedded 
 ** Select "Frameworks" from Destination drop down.  (Close the window)
 # <b>Add BGHUDAppKit.framework to newly created build phase</b>
 ** Drag BGHUDAppKit.framework from "Frameworks" group in XCode to "Copy Files" build phase under "Targets" group in XCode.
+# Double-Click the current Target
+** Select the "Build" tab
+** Set the value for "Runtime Search Paths" to "@loader_path/../Frameworks"
 
 Build and go.  If you inspect your .APP you should now see BGHUDAppKit.framework sitting peacefully in your {APP}Contents/Frameworks directory.
 	
